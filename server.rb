@@ -3,14 +3,11 @@ require 'bundler/setup'
 
 require 'sinatra'
 require 'sinatra/json'
-require 'rack/cors'
+require 'sinatra/cross_origin'
 require 'metro'
 
-use Rack::Cors do
-  allow do
-    origins '*'
-    resource '/api/*', headers: :any, methods: :get, max_age: 0
-  end
+configure do
+  enable :cross_origin
 end
 
 metro = Metro.new
