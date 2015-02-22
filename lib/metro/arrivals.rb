@@ -6,14 +6,14 @@ class Arrivals
   end
 
   def for_stop(stop_id)
-    all_arrivals.select { |a| a[:stop_id] == stop_id }
+    all.select { |a| a[:stop_id] == stop_id }
+  end
+
+  def all
+    @all ||= trip_updates.map { |tu| tu.arrivals }.flatten
   end
 
   private
-
-  def all_arrivals
-    @all_arrivals ||= trip_updates.map { |tu| tu.arrivals }.flatten
-  end
 
   def trip_updates
     @trip_updates ||= @feed.entity.map { |e| TripUpdate.new(e.trip_update) }
