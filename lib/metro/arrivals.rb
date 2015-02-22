@@ -33,7 +33,7 @@ class Arrivals
           stop_id: stu.stop_id,
           route_id: @route_id,
           stop_sequence: stu.stop_sequence,
-          departure: Time.at(stu.departure.time).iso8601,
+          time: Time.at(stu.departure.time).iso8601,
           delay: stu.departure.delay,
         }
       }
