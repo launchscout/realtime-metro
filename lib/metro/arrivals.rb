@@ -8,7 +8,7 @@ class Arrivals
   end
 
   def for_stop(stop_id)
-    all.select { |a| a[:stop_id] == stop_id }
+    all.select { |a| a[:stop_id].downcase == stop_id.downcase }
   end
 
   def all
