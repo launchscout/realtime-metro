@@ -1,4 +1,6 @@
 require 'vendor/gtfs-realtime.pb.rb'
+require 'byebug'
+require 'time'
 
 class Arrivals
   def initialize(buffer)
@@ -26,7 +28,15 @@ class Arrivals
     end
 
     def arrivals
-      @arrivals ||= @stop_time_updates.map { |stu| stu.to_hash.merge(route_id: @route_id) }
+      @arrivals ||= @stop_time_updates.map { |stu|
+        {
+          stop_id: stu.stop_id,
+          route_id: @route_id,
+          stop_sequence: stu.stop_sequence,
+          departure: Time.at(stu.departure.time).iso8601,
+          delay: stu.departure.delay,
+        }
+      }
     end
   end
 end
