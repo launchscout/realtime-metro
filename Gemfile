@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
-gem 'http'
+gem 'faraday'
 gem 'byebug'
 gem 'ruby-protocol-buffers'
 gem 'rspec'
+gem 'sinatra'
+gem 'sinatra-contrib'

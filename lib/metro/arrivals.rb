@@ -1,8 +1,8 @@
 require 'vendor/gtfs-realtime.pb.rb'
 
 class Arrivals
-  def initialize(io)
-    @feed = TransitRealtime::FeedMessage.parse(io.read)
+  def initialize(buffer)
+    @feed = TransitRealtime::FeedMessage.parse(buffer)
   end
 
   def for_stop(stop_id)
