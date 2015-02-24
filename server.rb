@@ -20,4 +20,6 @@ get '/api/arrivals/:stop_id' do
   json arrivals: metro_connection.arrivals.for_stop(params[:stop_id])
 end
 
+get '/api/routes' do
+  json routes: Metro::Routes.all
 end
