@@ -10,12 +10,14 @@ configure do
   enable :cross_origin
 end
 
-metro = Metro.new
+metro_connection = Metro::Connection.new
 
 get '/api/arrivals' do
-  json arrivals: metro.arrivals.all
+  json arrivals: metro_connection.arrivals.all
 end
 
 get '/api/arrivals/:stop_id' do
-  json arrivals: metro.arrivals.for_stop(params[:stop_id])
+  json arrivals: metro_connection.arrivals.for_stop(params[:stop_id])
+end
+
 end
