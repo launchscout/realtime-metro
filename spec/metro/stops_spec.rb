@@ -7,5 +7,11 @@ module Metro
         expect(Stops.all.length).to eq(4465)
       end
     end
+
+    describe '.search' do
+      it 'returns stops by a search query' do
+        expect(Stops.search("Blue Ash").length).to eq(40)
+      end
+    end
   end
 end

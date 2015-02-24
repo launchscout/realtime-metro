@@ -25,6 +25,6 @@ get '/api/routes' do
 end
 
 get '/api/stops' do
-  json stops: Metro::Stops.all
+  json stops: Metro::Stops.search(params[:name])
 end
 
