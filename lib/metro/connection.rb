@@ -1,3 +1,5 @@
+require 'faraday'
+
 module Metro
   class Connection
     ENDPOINT = 'http://developer.go-metro.com'
