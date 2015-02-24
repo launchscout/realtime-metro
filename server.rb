@@ -23,3 +23,8 @@ end
 get '/api/routes' do
   json routes: Metro::Routes.all
 end
+
+get '/api/stops' do
+  json stops: Metro::Stops.all
+end
+
