@@ -33,10 +33,15 @@ module Metro
             stop_id: stu.stop_id,
             route_id: @route_id,
             stop_sequence: stu.stop_sequence,
-            time: Time.at(stu.departure.time).iso8601,
+            time: available_time(stu),
             delay: stu.departure.delay,
           }
         }
+      end
+
+      def available_time(stu)
+        time = [stu.departure.time, stu.arrival.time].max
+        Time.at(time).iso8601
       end
     end
   end

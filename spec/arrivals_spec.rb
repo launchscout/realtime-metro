@@ -19,5 +19,13 @@ RSpec.describe "Arrivals" do
       expect(mad_hyd_arrivals.first[:time]).to eq("2015-02-16T18:06:59-05:00")
     end
   end
+
+  describe "parsing stops with arrival times instead of departure times" do
+    let(:gsqb_arrivals) { arrivals.for_stop("GSqB") }
+
+    it "provides a time" do
+      expect(gsqb_arrivals.first[:time]).to eq("2015-02-16T17:53:00-05:00")
+    end
+  end
 end
 
